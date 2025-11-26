@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout /t 3 /nobreak)",
+      "Bash(npm audit:*)",
+      "Bash(taskkill:*)",
+      "Bash(exit 0)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nInitial commit: SolanaFloor clone with Payload CMS\n\n- Next.js 15 with React 19\n- Payload CMS integration with MongoDB\n- Article and Author collections\n- News, Learn, and Data pages\n- Market ticker and article management\n- Responsive design with Tailwind CSS\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
