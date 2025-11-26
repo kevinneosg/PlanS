@@ -1,16 +1,17 @@
 # SolanaFloor Clone
 
-A modern clone of SolanaFloor.com built with Next.js 14, TypeScript, and Tailwind CSS. Features a Vercel API-based CMS for managing content.
+A modern clone of SolanaFloor.com built with Next.js 15, React 19, TypeScript, and Tailwind CSS. Features **Payload CMS** for powerful content management with MongoDB.
 
 ## Features
 
 - 🎨 **Modern Dark Theme** - Crypto-native design with Solana brand colors
-- 📰 **News Management** - Full CRUD API for articles
+- 📰 **Payload CMS** - Professional headless CMS with admin panel
 - 🏷️ **Categories** - Organized content by DeFi, NFTs, Markets, etc.
 - 📊 **Market Data** - Token prices and NFT floor prices
 - 📱 **Responsive** - Mobile-first design
-- 🚀 **Fast** - Built on Next.js App Router with server components
-- 🔌 **API Ready** - RESTful API endpoints for CMS integration
+- 🚀 **Fast** - Built on Next.js 15 App Router with server components
+- 🔌 **API Ready** - RESTful API endpoints powered by Payload
+- 🔐 **Secure** - Built-in authentication and authorization
 
 ## Quick Start
 
@@ -18,8 +19,15 @@ A modern clone of SolanaFloor.com built with Next.js 14, TypeScript, and Tailwin
 # Install dependencies
 npm install
 
+# Set up environment variables
+# Copy .env.local and update with your MongoDB connection string
+# See DEPLOYMENT.md for details
+
 # Run development server
 npm run dev
+
+# Visit http://localhost:3000 for the site
+# Visit http://localhost:3000/admin for Payload CMS admin panel
 
 # Build for production
 npm run build
@@ -27,6 +35,18 @@ npm run build
 # Start production server
 npm start
 ```
+
+## Environment Setup
+
+Create a `.env.local` file:
+
+```env
+PAYLOAD_SECRET=your-secure-random-string
+DATABASE_URL=mongodb://localhost:27017/solanafloor
+NEXT_PUBLIC_SERVER_URL=http://localhost:3000
+```
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed setup instructions.
 
 ## Project Structure
 
@@ -179,43 +199,33 @@ For production, you may want to add:
 - `DATABASE_URL` - For persistent storage (optional)
 - `API_SECRET` - For protected endpoints (optional)
 
-## Customization
+## Payload CMS Admin Panel
 
-### Adding Database Support
-
-Replace the in-memory data store in `lib/data.ts` with your preferred database:
-
-```typescript
-// Example with Prisma
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
-
-export async function getArticles(params) {
-  return prisma.article.findMany({
-    where: params.category ? { category: params.category } : undefined,
-    orderBy: { publishedAt: 'desc' },
-    skip: (params.page - 1) * params.limit,
-    take: params.limit,
-  });
-}
-```
-
-### Supported Databases
-
-- **Vercel Postgres** - Built-in with Vercel
-- **PlanetScale** - MySQL-compatible
-- **Supabase** - PostgreSQL with realtime
-- **MongoDB Atlas** - Document database
-- **Upstash Redis** - For caching
+Access the admin panel at `/admin` to:
+- Create and manage articles
+- Manage authors
+- Configure categories
+- Upload images
+- Publish/unpublish content
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 15 (App Router)
+- **React**: React 19
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
+- **CMS**: Payload CMS 3.0 (Beta)
+- **Database**: MongoDB
 - **Icons**: Lucide React
 - **Deployment**: Vercel
+
+## Deployment
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for comprehensive deployment instructions including:
+- MongoDB Atlas setup
+- Vercel deployment
+- Environment variable configuration
+- Domain setup
 
 ## License
 
