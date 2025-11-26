@@ -7,11 +7,12 @@ import { getArticleBySlug, getArticles } from '@/lib/data';
 import { ArrowLeft, Clock, Calendar, Share2, Twitter, Bookmark } from 'lucide-react';
 
 interface ArticlePageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
-export default function ArticlePage({ params }: ArticlePageProps) {
-  const article = getArticleBySlug(params.slug);
+export default async function ArticlePage({ params }: ArticlePageProps) {
+  const { slug } = await params;
+  const article = getArticleBySlug(slug);
 
   if (!article) {
     notFound();

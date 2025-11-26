@@ -4,10 +4,11 @@ import { getArticleBySlug, updateArticle, deleteArticle, articles } from '@/lib/
 // GET /api/articles/[slug] - Get single article
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const article = getArticleBySlug(params.slug);
+    const { slug } = await params;
+    const article = getArticleBySlug(slug);
     
     if (!article) {
       return NextResponse.json(
@@ -31,10 +32,11 @@ export async function GET(
 // PUT /api/articles/[slug] - Update article
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const article = getArticleBySlug(params.slug);
+    const { slug } = await params;
+    const article = getArticleBySlug(slug);
     
     if (!article) {
       return NextResponse.json(
@@ -61,10 +63,11 @@ export async function PUT(
 // DELETE /api/articles/[slug] - Delete article
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const article = getArticleBySlug(params.slug);
+    const { slug } = await params;
+    const article = getArticleBySlug(slug);
     
     if (!article) {
       return NextResponse.json(
