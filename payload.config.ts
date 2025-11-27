@@ -133,11 +133,11 @@ export default buildConfig({
       ],
     },
   ],
-  secret: process.env.PAYLOAD_SECRET || 'YOUR_SECRET_HERE',
+  secret: process.env.PAYLOAD_SECRET!,
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: mongooseAdapter({
-    url: process.env.DATABASE_URL || 'mongodb://localhost:27017/solanafloor',
+    url: process.env.DATABASE_URL!,
   }),
 })
