@@ -7,22 +7,10 @@ import { fileURLToPath } from 'url'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-// Validate required environment variables
-if (!process.env.PAYLOAD_SECRET) {
-  throw new Error('PAYLOAD_SECRET environment variable is required')
-}
-
-if (!process.env.DATABASE_URL) {
-  throw new Error('DATABASE_URL environment variable is required')
-}
-
-export default buildConfig({
+const config = buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
   admin: {
     user: 'users',
-    importMap: {
-      baseDir: path.resolve(dirname),
-    },
   },
   editor: lexicalEditor({}),
   collections: [
@@ -164,11 +152,13 @@ export default buildConfig({
       ],
     },
   ],
-  secret: process.env.PAYLOAD_SECRET!,
+  secret: process.env.PAYLOAD_SECRET || 'development-secret-please-change',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: mongooseAdapter({
-    url: process.env.DATABASE_URL!,
+    url: process.env.DATABASE_URL || 'mongodb://localhost:27017/solanafloor',
   }),
 })
+
+export default config
