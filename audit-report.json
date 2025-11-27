@@ -1,0 +1,204 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@payloadcms/db-mongodb": {
+      "name": "@payloadcms/db-mongodb",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "mongoose"
+      ],
+      "effects": [],
+      "range": "3.0.0-alpha.0 - 3.4.1-canary.417e3d2",
+      "nodes": [
+        "node_modules/@payloadcms/db-mongodb"
+      ],
+      "fixAvailable": {
+        "name": "@payloadcms/db-mongodb",
+        "version": "3.65.0",
+        "isSemVerMajor": false
+      }
+    },
+    "@payloadcms/graphql": {
+      "name": "@payloadcms/graphql",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "tsx"
+      ],
+      "effects": [
+        "@payloadcms/next"
+      ],
+      "range": "<=3.60.0-internal.c277fd4",
+      "nodes": [
+        "node_modules/@payloadcms/graphql"
+      ],
+      "fixAvailable": {
+        "name": "@payloadcms/next",
+        "version": "3.65.0",
+        "isSemVerMajor": false
+      }
+    },
+    "@payloadcms/next": {
+      "name": "@payloadcms/next",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "@payloadcms/graphql"
+      ],
+      "effects": [],
+      "range": "<=3.60.0-internal.c277fd4",
+      "nodes": [
+        "node_modules/@payloadcms/next"
+      ],
+      "fixAvailable": {
+        "name": "@payloadcms/next",
+        "version": "3.65.0",
+        "isSemVerMajor": false
+      }
+    },
+    "esbuild": {
+      "name": "esbuild",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1102341,
+          "name": "esbuild",
+          "dependency": "esbuild",
+          "title": "esbuild enables any website to send any requests to the development server and read the response",
+          "url": "https://github.com/advisories/GHSA-67mh-4wv8-2f99",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-346"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+          },
+          "range": "<=0.24.2"
+        }
+      ],
+      "effects": [
+        "tsx"
+      ],
+      "range": "<=0.24.2",
+      "nodes": [
+        "node_modules/esbuild"
+      ],
+      "fixAvailable": {
+        "name": "@payloadcms/next",
+        "version": "3.65.0",
+        "isSemVerMajor": false
+      }
+    },
+    "mongoose": {
+      "name": "mongoose",
+      "severity": "critical",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1101063,
+          "name": "mongoose",
+          "dependency": "mongoose",
+          "title": "Mongoose search injection vulnerability",
+          "url": "https://github.com/advisories/GHSA-m7xq-9374-9rvx",
+          "severity": "high",
+          "cwe": [
+            "CWE-89"
+          ],
+          "cvss": {
+            "score": 9.8,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+          },
+          "range": ">=8.0.0-rc0 <8.8.3"
+        },
+        {
+          "source": 1101840,
+          "name": "mongoose",
+          "dependency": "mongoose",
+          "title": "Mongoose search injection vulnerability",
+          "url": "https://github.com/advisories/GHSA-vg7j-7cwx-8wgw",
+          "severity": "critical",
+          "cwe": [
+            "CWE-94"
+          ],
+          "cvss": {
+            "score": 9.1,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H"
+          },
+          "range": ">=8.0.0-rc0 <8.9.5"
+        }
+      ],
+      "effects": [
+        "@payloadcms/db-mongodb"
+      ],
+      "range": "8.0.0-rc0 - 8.9.4",
+      "nodes": [
+        "node_modules/mongoose"
+      ],
+      "fixAvailable": {
+        "name": "@payloadcms/db-mongodb",
+        "version": "3.65.0",
+        "isSemVerMajor": false
+      }
+    },
+    "payload": {
+      "name": "payload",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "tsx"
+      ],
+      "effects": [],
+      "range": "3.0.0-alpha.0 - 3.47.0-internal.b17506e",
+      "nodes": [
+        "node_modules/payload"
+      ],
+      "fixAvailable": {
+        "name": "payload",
+        "version": "3.65.0",
+        "isSemVerMajor": false
+      }
+    },
+    "tsx": {
+      "name": "tsx",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "esbuild"
+      ],
+      "effects": [
+        "@payloadcms/graphql",
+        "payload"
+      ],
+      "range": "3.13.0 - 4.19.2",
+      "nodes": [
+        "node_modules/tsx"
+      ],
+      "fixAvailable": {
+        "name": "@payloadcms/next",
+        "version": "3.65.0",
+        "isSemVerMajor": false
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 5,
+      "high": 1,
+      "critical": 1,
+      "total": 7
+    },
+    "dependencies": {
+      "prod": 355,
+      "dev": 53,
+      "optional": 79,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 486
+    }
+  }
+}
