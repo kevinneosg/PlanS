@@ -6,8 +6,16 @@ const nextConfig = {
     domains: ['img.step.finance', 'sf-cms.step.finance'],
   },
   outputFileTracingIncludes: {
-    '/admin/[[...segments]]': ['./app/(payload)/admin/**/*'],
-    '/api/**/*': ['./payload.config.ts', './payload-types.ts'],
+    '/(payload)/admin/[[...segments]]': [
+      './payload.config.ts',
+      './app/(payload)/admin/**/*',
+    ],
+    '/(payload)/api/[...slug]': [
+      './payload.config.ts',
+    ],
+  },
+  experimental: {
+    reactCompiler: false,
   },
   serverExternalPackages: ['mongoose', 'mongodb'],
 }
