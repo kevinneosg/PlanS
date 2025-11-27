@@ -6,7 +6,7 @@ const nextConfig = {
     domains: ['img.step.finance', 'sf-cms.step.finance'],
   },
   outputFileTracingIncludes: {
-    '/(payload)/admin/[[...segments]]': [
+    '/admin/**': [
       './payload.config.ts',
       './app/(payload)/admin/**/*',
     ],

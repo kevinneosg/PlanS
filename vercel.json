@@ -5,12 +5,9 @@
       "maxDuration": 60,
       "memory": 1024
     },
-    "app/(payload)/admin/[[...segments]]/page.tsx": {
+    "app/(payload)/**/*.tsx": {
       "maxDuration": 60,
       "memory": 1024
     }
-  },
-  "env": {
-    "PAYLOAD_CONFIG_PATH": "payload.config.ts"
   }
 }
