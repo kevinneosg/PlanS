@@ -5,11 +5,6 @@
   "installCommand": "npm install",
   "outputDirectory": ".next",
   "regions": ["iad1"],
-  "includeFiles": [
-    "app/(payload)/admin/importMap.js",
-    "payload.config.ts",
-    ".next/**"
-  ],
   "functions": {
     "app/api/**/*.ts": {
       "maxDuration": 10
