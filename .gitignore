@@ -40,3 +40,6 @@ payload-types.ts
 
 # Windows
 nul
+
+.vercel
+.env*.local
