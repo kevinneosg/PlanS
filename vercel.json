@@ -5,10 +5,6 @@
       "maxDuration": 60,
       "memory": 1024
     },
-    "app/(payload)/api/[...slug]/route.ts": {
-      "maxDuration": 60,
-      "memory": 1024
-    },
     "app/(payload)/admin/[[...segments]]/page.tsx": {
       "maxDuration": 60,
       "memory": 1024

@@ -10,9 +10,6 @@ const nextConfig = {
       './payload.config.ts',
       './app/(payload)/admin/**/*',
     ],
-    '/(payload)/api/[...slug]': [
-      './payload.config.ts',
-    ],
   },
   experimental: {
     reactCompiler: false,
