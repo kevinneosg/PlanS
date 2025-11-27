@@ -152,6 +152,23 @@ If you encounter build errors on Vercel:
 - Check browser console for errors
 - Ensure all Payload dependencies are installed
 
+### 504 Gateway Timeout Errors
+
+If you see `FUNCTION_INVOCATION_TIMEOUT` errors:
+
+1. **Vercel Plan Check**: Free Hobby plan limits functions to 10 seconds. Upgrade to Pro for 60+ second timeouts.
+2. **Increase Memory**: We've configured 1024MB memory in `vercel.json` for faster cold starts
+3. **Database Performance**: Ensure your MongoDB cluster is in the same region as Vercel functions (use `"regions": ["iad1"]` for US East)
+
+### TypeError: Cannot destructure property 'config'
+
+If you see this error, it means Payload config isn't loading properly:
+
+1. **Environment Variables**: Verify `PAYLOAD_SECRET` and `DATABASE_URL` are set in Vercel dashboard
+2. **MongoDB Connection**: Test your MongoDB connection string locally first
+3. **Redeploy**: After setting environment variables, trigger a new deployment
+4. **Check Logs**: View function logs in Vercel dashboard for detailed error messages
+
 ## Custom Domain
 
 To add a custom domain:
