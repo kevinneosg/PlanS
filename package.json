@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "payload": "payload"
+    "payload": "payload",
+    "vercel-build": "next build"
   },
   "dependencies": {
     "lucide-react": "^0.400.0",

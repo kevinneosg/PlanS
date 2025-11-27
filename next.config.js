@@ -6,8 +6,10 @@ const nextConfig = {
     domains: ['img.step.finance', 'sf-cms.step.finance'],
   },
   outputFileTracingIncludes: {
-    '/admin/[[...segments]]': ['./app/(payload)/admin/importMap.js'],
+    '/admin/[[...segments]]': ['./app/(payload)/admin/**/*'],
+    '/api/**/*': ['./payload.config.ts', './payload-types.ts'],
   },
+  serverExternalPackages: ['mongoose', 'mongodb'],
 }
 
 export default withPayload(nextConfig)
