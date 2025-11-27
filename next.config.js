@@ -5,12 +5,6 @@ const nextConfig = {
   images: {
     domains: ['img.step.finance', 'sf-cms.step.finance'],
   },
-  outputFileTracingIncludes: {
-    '/admin/**': [
-      './payload.config.ts',
-      './app/(payload)/admin/**/*',
-    ],
-  },
   experimental: {
     reactCompiler: false,
   },
